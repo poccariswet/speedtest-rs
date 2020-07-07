@@ -1,11 +1,11 @@
 [package]
-authors = ["Nelson Chen <nelson@mindflakes.com>"]
-description = "Speedtest.net testing utility and crate"
+authors = ["poccariswet"]
+description = "Speedtest on wasm"
 exclude = ["tests/config/*"]
 license = "MIT OR Apache-2.0"
-name = "speedtest-rs"
-repository = "https://github.com/nelsonjchen/speedtest-rs"
-version = "0.0.14"
+name = "speedtest-wasm"
+repository = "https://github.com/poccariswet/speedtest-wasm"
+version = "0.1.0"
 edition = "2018"
 
 [dependencies]
@@ -22,5 +22,19 @@ md5 = "0.7.0"
 csv = "1.1.3"
 serde = { version = "1", features = ["derive"] }
 
+wasm-bindgen = "0.2"
+console_error_panic_hook = { version = "0.1.1", optional = true }
+wee_alloc = { version = "0.4.2", optional = true }
+
+[dev-dependencies]
+wasm-bindgen-test = "0.2"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
 [features]
 rustls-tls = ["reqwest/rustls-tls"]
+
+
+[features]
+default = ["console_error_panic_hook"]
