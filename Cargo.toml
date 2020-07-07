@@ -34,7 +34,4 @@ crate-type = ["cdylib", "rlib"]
 
 [features]
 rustls-tls = ["reqwest/rustls-tls"]
-
-
-[features]
 default = ["console_error_panic_hook"]
